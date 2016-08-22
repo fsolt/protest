@@ -1,0 +1,68 @@
+*ever
+	demo_ever3 
+	Have you ever participated in a public demonstration or protest?
+	1. sometimes 2. almost never 3. never
+		AmericasBarometer	prot1
+	
+	petit_ever3
+	Now I'd like you to look at this card. I'm going to read out some different forms of political action that people can take, and I'd like you to tell me, for each one, whether you have actually done any of these things, whether you might do it or would never, under any circumstances, do it. Signing a petition.
+	1. have done 2. might do 3. would never do
+		WVS			e025
+		EVS			e025
+		LB
+
+	boycott_ever3
+	Now I'd like you to look at this card. I'm going to read out some different forms of political action that people can take, and I'd like you to tell me, for each one, whether you have actually done any of these things, whether you might do it or would never, under any circumstances, do it. Joining in boycotts.
+	1. have done 2. might do 3. would never do
+		WVS			e026
+		EVS			e026
+
+	demo_ever3
+	I'm going to read out some different forms of political action that people can take, and I'd like you to tell me, for each one, whether you have actually done any of these things, whether you might do it or would never, under any circumstances, do it.	Attending lawful demonstrations. 
+	1. have done 2. might do 3. would never do
+		WVS			e027
+		EVS			e027
+	
+	strike_ever3
+	Now I'd like you to look at this card. I'm going to read out some different forms of political action that people can take, and I'd like you to tell me, for each one, whether you have actually done any of these things, whether you might do it or would never, under any circumstances, do it. Joining unofficial strikes.
+	1. have done 2. might do 3. would never do
+		WVS			e028
+		EVS			e028
+
+	occupy_ever3
+	Now I'd like you to look at this card. I'm going to read out some different forms of political action that people can take, and I'd like you to tell me, for each one, whether you have actually done any of these things, whether you might do it or would never, under any circumstances, do it. Occupy buildings or factories.
+	1. have done 2. might do 3. would never do
+		WVS			e029
+		EVS			e029
+		
+
+*last year
+	demo_year3
+	In the past 12 months, have you participated in a public demonstration or protest?
+	1. sometimes 2. almost never 3. never
+		AmericasBarometer	prot2, prot2alt
+
+	demo_year2
+	In the last 12 months, have you participated in a demonstration or protest march?
+		AmericasBarometer	prot3
+		ESS			pbldmn
+		
+
+	demo_year_freq
+	How many times have you participated in a demonstration or protest march in the last 12 months?
+		AmericasBarometer	prot4 (only if prot3==1)
+
+	
+	petit_year2
+	In the last 12 months have you signed any petition?
+		AmericasBarometer	prot6
+		ESS			sgnptit
+
+	block_year2
+	And in the last twelve months, have you participated in blocking any street or public space as a form of protest?
+	1. yes 2. no
+		AmericasBarometer	prot7
+
+	boycott_year2
+	During the last 12 months, have you done any of the following? Have you boycotted certain products?
+		ESS			bctprd
