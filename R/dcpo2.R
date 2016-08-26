@@ -71,7 +71,7 @@ dcpo_code2 <- '
   transformed data {
     int G[N-1];				// number of missing years until next observed country-year (G for "gap")
     for (n in 1:N-1) {
-        G[n] <- tt[n+1] - tt[n] - 1;
+        G[n] = tt[n+1] - tt[n] - 1;
     }
   }
   parameters {
@@ -91,7 +91,7 @@ dcpo_code2 <- '
     real<lower=0, upper=1> beta[R]; // position ("difficulty") of question-cutpoint r (see Stan Development Team 2015, 61; Gelman and Hill 2007, 314-320; McGann 2014, 118-120 (using lambda))
     real<lower=0, upper=1> m[N]; // expected probability of random individual giving selected answer
 
-    beta <- tau;
+    beta = tau;
     for (r in 2:R) {
       if (qr[r]==qr[r-1])
       beta[r] = beta[r-1] + (tau[r] * (1 - beta[r - 1]));
@@ -138,7 +138,7 @@ start <- proc.time()
 out1 <- stan(model_code = dcpo_code2,
              data = dcpo_data,
              seed = seed,
-             iter = 60,
+             iter = iter,
              cores = cores,
              chains = chains,
              control = list(max_treedepth = 20,
