@@ -7,21 +7,40 @@
 	petit_ever3
 	Now I'd like you to look at this card. I'm going to read out some different forms of political action that people can take, and I'd like you to tell me, for each one, whether you have actually done any of these things, whether you might do it or would never, under any circumstances, do it. Signing a petition.
 	1. have done 2. might do 3. would never do
-		WVS			e025
-		EVS			e025
-		LB
+	X	WVS			e025
+	X	EVS			e025
+		LB2002			P48STA
+		LB2005			P72STA
+		LB2006			P37ST.BA
+		LB2007			P62ST.A
+		LB2008			P82WVSTA
 
 	boycott_ever3
 	Now I'd like you to look at this card. I'm going to read out some different forms of political action that people can take, and I'd like you to tell me, for each one, whether you have actually done any of these things, whether you might do it or would never, under any circumstances, do it. Joining in boycotts.
 	1. have done 2. might do 3. would never do
-		WVS			e026
-		EVS			e026
+	X	WVS			e026
+	X	EVS			e026
+		LB2008			P82ST.D
 
 	demo_ever3
-	I'm going to read out some different forms of political action that people can take, and I'd like you to tell me, for each one, whether you have actually done any of these things, whether you might do it or would never, under any circumstances, do it.	Attending lawful demonstrations. 
+	I'm going to read out some different forms of political action that people can take, and I'd like you to tell me, for each one, whether you have actually done any of these things, whether you might do it or would never, under any circumstances, do it.	Attending lawful (LB "authorized") demonstrations. 
 	1. have done 2. might do 3. would never do
-		WVS			e027
-		EVS			e027
+	X	WVS			e027
+	X	EVS			e027
+		LB1995			P65A	
+	X	LB1996			P68A
+	X	LB1998			SP55A
+		LB2000			P59ST.A
+	X	LB2002			P48STB
+		LB2003			P78STA
+		LB2005			P72STB
+		LB2006			P37ST.BB	
+		LB2007			P62ST.B	
+	X	LB2008			P82WVSTB
+
+	"unauthorized demonstrations"
+		LB2003			P78NB
+		LB2005			P72STE
 	
 	strike_ever3
 	Now I'd like you to look at this card. I'm going to read out some different forms of political action that people can take, and I'd like you to tell me, for each one, whether you have actually done any of these things, whether you might do it or would never, under any circumstances, do it. Joining unofficial strikes.
@@ -29,12 +48,32 @@
 		WVS			e028
 		EVS			e028
 
+	block_ever3
+	I am going to read out a variety of political activities. I would like you to tell me, for each one, if you have ever done any of them, if you would ever do any of them, or if you would never do any of them? Block traffic	
+		LB1995			P65B
+	X	LB1996			P68B
+	X	LB1998			SP55B	
+		LB2000			P59ST.B
+	X	LB2005			P72STF
+
+	riot_ever3
+		LB1995			P65C
+	X	LB2002			P48STC
+		LB2005			P72STC
+	X	LB2008			P82ST.C		
+
 	occupy_ever3
 	Now I'd like you to look at this card. I'm going to read out some different forms of political action that people can take, and I'd like you to tell me, for each one, whether you have actually done any of these things, whether you might do it or would never, under any circumstances, do it. Occupy buildings or factories.
 	1. have done 2. might do 3. would never do
 		WVS			e029
 		EVS			e029
-		
+		LB1995			P65D	
+	X	LB1996			P68C
+	X	LB1998			SP55C
+		LB2000			P59ST.C
+	X	LB2002			P48STD
+		LB2005			P72STD
+	X	LB2008			P82ST.E
 
 *last year
 	demo_year3
@@ -46,6 +85,7 @@
 	In the last 12 months, have you participated in a demonstration or protest march?
 		AmericasBarometer	prot3
 		ESS			pbldmn
+		EQLS			Y11_Q23b
 		
 
 	demo_year_freq
@@ -57,6 +97,11 @@
 	In the last 12 months have you signed any petition?
 		AmericasBarometer	prot6
 		ESS			sgnptit
+		EQLS			Y11_Q23c
+
+	prot_year2
+	In last year have you demonstrated or signed petition?
+		EQLS			Y07_Q020_2
 
 	block_year2
 	And in the last twelve months, have you participated in blocking any street or public space as a form of protest?
