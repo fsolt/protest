@@ -37,6 +37,7 @@
 		LB2006			P37ST.BB	
 		LB2007			P62ST.B	
 	X	LB2008			P82WVSTB
+		[check newer LB]
 
 	"unauthorized demonstrations"
 		LB2003			P78NB
