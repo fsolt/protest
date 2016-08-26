@@ -1,29 +1,44 @@
-survey,item,variable,values,to_na
-wvs.combo,petit_ever3,E025,c(3:1),c(-5:-1)
-wvs.combo,boycott_ever3,E026,c(3:1),c(-5:-1)
-wvs.combo,demo_ever3,E027,c(3:1),c(-5:-1)
-wvs.combo,strike_ever3,E028,c(3:1),c(-5:-1)
-wvs.combo,occupy_ever3,E029,c(3:1),c(-5:-1)
-evs.combo,petit_ever3,e025,c(3:1),
-evs.combo,boycott_ever3,e026,c(3:1),
-evs.combo,demo_ever3,e027,c(3:1),
-evs.combo,strike_ever3,e028,c(3:1),
-evs.combo,occupy_ever3,e029,c(3:1),
-ess.combo,demo_year2,pbldmn,c(2:1),
-ess.combo,petit_year2,sgnptit,c(2:1),
-ess.combo,boycott_year2,bctprd,c(2:1),
-ess6,demo_year2,pbldmn,c(2:1),
-ess6,petit_year2,sgnptit,c(2:1),
-ess6,boycott_year2,bctprd,c(2:1),
-ess7,demo_year2,pbldmn,c(2:1),
-ess7,petit_year2,sgnptit,c(2:1),
-ess7,boycott_year2,bctprd,c(2:1),
-amb,demo_year3,prot2,c(3:1),
-amb,demo_year3,prot2alt,c(3:1),
-amb,demo_year2,prot3,c(2:1),
-amb,petit_year2,prot6,c(2:1),
-amb,block_year2,prot7,c(2:1),
-amb,demo_ever3,prot1,c(3:1),
-,,,,
-,,,,
-,,,,
+"survey","item","variable","values","to_na"
+"wvs.combo","petit_ever3","E025","c(3:1)","c(-5:-1)"
+"wvs.combo","boycott_ever3","E026","c(3:1)","c(-5:-1)"
+"wvs.combo","demo_ever3","E027","c(3:1)","c(-5:-1)"
+"wvs.combo","strike_ever3","E028","c(3:1)","c(-5:-1)"
+"wvs.combo","occupy_ever3","E029","c(3:1)","c(-5:-1)"
+"evs.combo","petit_ever3","e025","c(3:1)",""
+"evs.combo","boycott_ever3","e026","c(3:1)",""
+"evs.combo","demo_ever3","e027","c(3:1)",""
+"evs.combo","strike_ever3","e028","c(3:1)",""
+"evs.combo","occupy_ever3","e029","c(3:1)",""
+"ess.combo","demo_year2","pbldmn","c(2:1)",""
+"ess.combo","petit_year2","sgnptit","c(2:1)",""
+"ess.combo","boycott_year2","bctprd","c(2:1)",""
+"ess6","demo_year2","pbldmn","c(2:1)",""
+"ess6","petit_year2","sgnptit","c(2:1)",""
+"ess6","boycott_year2","bctprd","c(2:1)",""
+"ess7","demo_year2","pbldmn","c(2:1)",""
+"ess7","petit_year2","sgnptit","c(2:1)",""
+"ess7","boycott_year2","bctprd","c(2:1)",""
+"amb","demo_year3","prot2","c(3:1)",""
+"amb","demo_year3","prot2alt","c(3:1)",""
+"amb","demo_year2","prot3","c(2:1)",""
+"amb","petit_year2","prot6","c(2:1)",""
+"amb","block_year2","prot7","c(2:1)",""
+"amb","demo_ever3","prot1","c(3:1)",""
+"lb1996","demo_ever3","p68a","c(3:1)",""
+"lb1996","block_ever3","p68b","c(3:1)",""
+"lb1996","occupy_ever3","p68c","c(3:1)",""
+"lb1998","demo_ever3","sp55a","c(3:1)",""
+"lb1998","block_ever3","sp55b","c(3:1)",""
+"lb1998","occupy_ever3","sp55c","c(3:1)",""
+"lb2002","demo_ever3","p48stb","c(3:1)",""
+"lb2002","riot_ever3","p48stc","c(3:1)",""
+"lb2002","occupy_ever3","p48std","c(3:1)",""
+"lb2002","petit_ever3","p48sta","c(3:1)",""
+"lb2008","petit_ever3","p82wvsta","c(3:1)","c(0, 8)"
+"lb2008","demo_ever3","p82wvstb","c(3:1)","c(0, 8)"
+"lb2008","riot_ever3","p82st_c","c(3:1)","c(0, 8)"
+"lb2008","boycott_ever3","p82st_d","c(3:1)","c(0, 8)"
+"lb2008","occupy_ever3","p82st_e","c(3:1)","c(0, 8)"
+"eqls.combo","demo_year2","Y11_Q23b","c(2:1)","c(98, 99)"
+"eqls.combo","petit_year2","Y11_Q23c","c(2:1)","c(98, 99)"
+"eqls.combo","prot_year2","Y07_Q20_2","c(2:1)","98"
