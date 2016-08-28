@@ -13,12 +13,12 @@ View(x1_sum)
 View(x1_sum[x1_sum$Rhat>1.1,])
 View(x1_sum[x1_sum$Rhat>1.2,])
 
-qcodes <- gm_a %>% group_by(variable) %>%
+qcodes <- prot %>% group_by(variable) %>%
   summarize(qcode = first(qcode),
             r_n = n()) %>%
   arrange(qcode)
 
-rcodes <- gm_a %>% group_by(variable_cp) %>%
+rcodes <- prot %>% group_by(variable_cp) %>%
   summarize(rcode = first(rcode),
             r_n = n()) %>%
   arrange(rcode)
