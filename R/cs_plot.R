@@ -8,47 +8,27 @@ p1_data_b <- p1_data %>% filter(half==1) %>% mutate(ranked = row_number(estimate
 
 p1a <- ggplot(p1_data_a, aes(x = estimate,
                              y = ranked)) +
-  geom_segment(aes(x = lb, xend = ub,
-                   y = ranked, yend = ranked),
-               na.rm = TRUE) +
-  scale_fill_manual(values = c("Marriage"="white",
-                               "Civil Union"="grey50",
-                               "None"="black"),
-                    breaks=c("Marriage", "Civil Union", "None"),
-                    name = "Legal Recognition") +
-  geom_point(aes(fill = as.factor(law)), shape = 21, size = 1.1, na.rm = TRUE) +
-  theme_bw() + theme(legend.position=c(.36, .95),
-                     axis.text.x  = element_text(size=7),
-                     axis.text.y  = element_text(size=7),
-                     axis.title.x = element_text(face="bold", size=7),
-                     legend.text = element_text(size = 7),
-                     legend.title = element_text(size=7, face = "bold"),
-                     legend.key.size = unit(.5, "line"),
-                     legend.background = element_rect(linetype = "solid",
-                                                      color = "grey80",
-                                                      size = .25),
-                     legend.key = element_rect(colour = "white")) +
-  scale_y_discrete(breaks = p1_data_a$ranked, labels=p1_data_a$country) +
-  coord_cartesian(xlim=c(0, 1)) +
-  labs(x = "Tolerance", y = NULL)
+    geom_segment(aes(x = lb, xend = ub,
+                     y = ranked, yend = ranked),
+                 na.rm = TRUE) +
+    geom_point(aes(), na.rm = TRUE) +
+    theme_bw() + 
+    theme(legend.position="none") +
+    scale_y_continuous(breaks = p1_data_a$ranked, labels=p1_data_a$country) +
+    coord_cartesian(xlim=c(0, .6)) +
+    labs(x = "Protest", y = NULL)
 
 p1b <- ggplot(p1_data_b, aes(x = estimate,
                              y = ranked)) +
-  geom_segment(aes(x = lb, xend = ub,
-                   y = ranked, yend = ranked),
-               na.rm = TRUE) +
-  scale_fill_manual(values = c("Marriage"="white",
-                               "Civil Union"="grey50",
-                               "None"="black"),
-                    breaks=c("Marriage", "Civil Union", "None")) +
-  geom_point(aes(fill = as.factor(law)), shape = 21, size = 1.1, na.rm = TRUE) +
-  theme_bw() + theme(legend.position="none",
-                     axis.text.x  = element_text(size=7),
-                     axis.text.y  = element_text(size=7),
-                     axis.title.x = element_text(face="bold", size=7)) +
-  scale_y_discrete(breaks = p1_data_b$ranked, labels=p1_data_b$country) +
-  coord_cartesian(xlim=c(0, 1)) +
-  labs(x = "Tolerance", y = NULL)
+    geom_segment(aes(x = lb, xend = ub,
+                     y = ranked, yend = ranked),
+                 na.rm = TRUE) +
+    geom_point(aes(), na.rm = TRUE) +
+    theme_bw() + 
+    theme(legend.position="none") +
+    scale_y_continuous(breaks = p1_data_b$ranked, labels=p1_data_b$country) +
+    coord_cartesian(xlim=c(0, .6)) +
+    labs(x = "Protest", y = NULL)
 
 require(grid)
 
