@@ -7,8 +7,9 @@ ktq <- prot %>%
   ungroup()
 
 ggplot(ktq %>% filter(kt>30), aes(x = var, y = kt)) +
-  geom_bar(fill = "#011993", stat = "identity") +
-  labs(x = NULL, y=NULL) +
-  theme_bw() +
-  ggtitle("Count of Country-Years by Item")
+    geom_bar(fill = "#011993", stat = "identity") +
+    labs(x = NULL, y=NULL) +
+    theme_bw() +
+    ggtitle("Count of Country-Years by Item") +
+    theme(axis.text.x  = element_text(size=8))
 ggsave("paper/figures/ktq.pdf", width = 9, height = 3)
