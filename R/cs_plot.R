@@ -1,7 +1,7 @@
 # make this a function!
 
 p1_data <- a_res %>% group_by(country) %>% top_n(1, year) %>% ungroup() %>%
-  arrange(-estimate) %>% mutate(half = ntile(estimate, 2))
+  arrange(-estimate) %>% filter(ub - lb < .3) %>% mutate(half = ntile(estimate, 2))
 
 p1_data_a <- p1_data %>% filter(half==2) %>% mutate(ranked = row_number(estimate))
 p1_data_b <- p1_data %>% filter(half==1) %>% mutate(ranked = row_number(estimate))
@@ -85,29 +85,36 @@ align_plots(p1a, p1b)
 dev.off()
 
 # With year colors
-#
-# p1_data <- a_res %>% group_by(country) %>% top_n(1, year) %>% ungroup() %>%
-#   arrange(-estimate) %>% mutate(half = ntile(estimate, 2),
-#                                 ranked = row_number(estimate),
-#                                 yr = year)
-# p1_data$yr <- car::recode(p1_data$yr, "2001:2010 = 'Before 2011'")
-# p1_data$yr <- factor(p1_data$yr, levels = c("Before 2011", "2011", "2012", "2013", "2014", "2015"))
-#
-# p1_data_a <- p1_data %>% filter(half==2)
-#
-# p1a <- ggplot(p1_data_a, aes(x = estimate,
-#                              y = row_number(estimate), colour=yr)) +
-#   scale_fill_manual(values = c("black", "white")) +
-#   geom_point(aes(fill = as.factor(civ)), shape = 21, na.rm = TRUE) +
-#   theme_bw() + theme(legend.position="none") +
-#   geom_segment(aes(x = lb,
-#                    xend = ub,
-#                    y = row_number(estimate), yend = row_number(estimate),
-#                    colour=yr), na.rm = TRUE) +
-#   scale_y_discrete(breaks = row_number(p1_data_a$estimate), labels=p1_data_a$country) +
-#   coord_cartesian(xlim=c(0, 1)) +
-#   ylab("") + xlab("")
 
+p1_data <- a_res %>%    
+    group_by(country) %>% 
+    top_n(1, year) %>% 
+    ungroup() %>%
+    arrange(-estimate) %>%
+    filter(ub - lb < .3) %>% 
+    mutate(half = ntile(estimate, 2),
+           ranked = row_number(estimate),
+           yr = year)
+p1_data$yr <- car::recode(p1_data$yr, "2001:2010 = 'Before 2011'")
+p1_data$yr <- factor(p1_data$yr, levels = c("Before 2011", "2011", "2012", "2013", "2014", "2015"))
+
+p1_data_a <- p1_data %>% filter(half==2)
+
+p1a <- ggplot(p1_data_a, aes(x = estimate,
+                             y = row_number(estimate), colour=yr)) +
+    geom_point(na.rm = TRUE) +
+    theme_bw() + 
+    theme(legend.position="none") +
+    geom_segment(aes(x = lb,
+                     xend = ub,
+                     y = row_number(estimate), yend = row_number(estimate),
+                     colour=yr), na.rm = TRUE) +
+    scale_y_continuous(breaks = row_number(p1_data_a$estimate), labels=p1_data_a$country) +
+    coord_cartesian(xlim=c(0, .6)) +
+    ylab("") + xlab("")
+
+
+# Split by quarters
 p1_data <- a_res %>% group_by(country) %>% top_n(1, year) %>% ungroup() %>%
   arrange(-estimate) %>% mutate(quarter = ntile(estimate, 4))
 
