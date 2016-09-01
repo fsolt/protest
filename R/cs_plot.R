@@ -122,7 +122,7 @@ p1a <- ggplot(p1_data_a, aes(x = estimate,
                      y = row_number(estimate), yend = row_number(estimate),
                      colour=Year), na.rm = TRUE) +
     scale_y_continuous(breaks = row_number(p1_data_a$estimate), labels=p1_data_a$country) +
-    coord_cartesian(xlim=c(0, .6)) +
+    coord_cartesian(xlim=c(0, 1)) +
     ylab(NULL) + xlab("Protest") +
     scale_color_grey(start = .8, end = 0)
 ggsave("paper/figures/cs_1q.pdf", width = 6, height = 4)
@@ -135,13 +135,20 @@ p1b <- ggplot(p1_data_b, aes(x = estimate,
           legend.justification = c(1, 0),
           axis.text.x  = element_text(size=7),
           axis.text.y  = element_text(size=7),
-          axis.title.x = element_text(face="bold", size=7)) +
+          axis.title.x = element_text(face="bold", size=7),
+          legend.text = element_text(size = 7),
+          legend.title = element_text(size=7, face = "bold"),
+          legend.key.size = unit(.5, "line"),
+          legend.background = element_rect(linetype = "solid",
+                                           color = "grey80",
+                                           size = .25),
+          legend.key = element_rect(colour = "white")) +
     geom_segment(aes(x = lb,
                      xend = ub,
                      y = row_number(estimate), yend = row_number(estimate),
                      colour=Year), na.rm = TRUE) +
     scale_y_continuous(breaks = row_number(p1_data_b$estimate), labels=p1_data_b$country) +
-    coord_cartesian(xlim=c(0, .6)) +
+    coord_cartesian(xlim=c(0, 1)) +
     ylab(NULL) + xlab("Protest") +
     scale_color_grey(start = .8, end = 0)
 ggsave("paper/figures/cs_2q.pdf", width = 6, height = 4)
