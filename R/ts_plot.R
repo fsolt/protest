@@ -20,7 +20,7 @@ for (i in 1:npages) {
     geom_line() + theme_bw() +
     theme(legend.position="none") +
     coord_cartesian(xlim=c(1980,2016), ylim = c(0, 1)) +
-    labs(x = NULL, y = "Tolerance") +
+    labs(x = NULL, y = "Protest") +
     geom_ribbon(aes(ymin = lb, ymax = ub, linetype=NA), alpha = .25) +
     facet_wrap(~country, ncol = 5) +
     theme(axis.text.x = element_text(angle = 45, hjust = 1),
