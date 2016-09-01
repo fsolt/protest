@@ -131,18 +131,11 @@ p1b <- ggplot(p1_data_b, aes(x = estimate,
                              y = row_number(estimate), colour=Year)) +
     geom_point(na.rm = TRUE) +
     theme_bw() + 
-    theme(legend.position=c(1, 0),
+    theme(legend.position="none",
           legend.justification = c(1, 0),
           axis.text.x  = element_text(size=7),
           axis.text.y  = element_text(size=7),
-          axis.title.x = element_text(face="bold", size=7),
-          legend.text = element_text(size = 7),
-          legend.title = element_text(size=7, face = "bold"),
-          legend.key.size = unit(.5, "line"),
-          legend.background = element_rect(linetype = "solid",
-                                           color = "grey80",
-                                           size = .25),
-          legend.key = element_rect(colour = "white")) +
+          axis.title.x = element_text(face="bold", size=7)) +
     geom_segment(aes(x = lb,
                      xend = ub,
                      y = row_number(estimate), yend = row_number(estimate),
