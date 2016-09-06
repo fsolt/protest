@@ -16,11 +16,10 @@ prot <- dcpo_setup(prot0)
 write_csv(prot, "data/all_data_prot.csv")
 
 prot <- read_csv("data/all_data_prot.csv")
-prot_a <- prot %>%
-    mutate(vals = str_extract(variable, "[23]") %>% as.numeric(),
-           p = y_r/n) %>% 
-    filter(!(vals==3 & cutpoint==1 & variable!="demo_year3")) %>% 
-    filter(!str_detect(variable, "petit")) %>% 
-    filter(!str_detect(variable, "boycott"))
-prot0 <- prot
-prot <- prot_a %>% mutate(rcode = as.numeric(factor(rcode, levels = unique(rcode))))
+prot <- prot %>%
+    filter(!(str_detect(variable, "_ever3") & cutpoint==1)) %>% 
+    filter(!(str_detect(variable, "_year3") & cutpoint==2)) %>% 
+    mutate(variable_cp = str_replace(variable_cp, "_year4_gt3", "_year")) %>% 
+    mutate(variable_cp = str_replace(variable_cp, "_year4_gt2", "_ever")) %>% 
+    filter(!str_detect(variable_cp, "_year4_gt1")) %>% 
+    mutate(variable_cp = str_replace(variable_cp, "[23]_gt[12]", ""))
