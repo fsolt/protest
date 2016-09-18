@@ -1,14 +1,14 @@
 ktq <- prot %>%
-  mutate(ktq = paste0(country, year, variable)) %>%
-  group_by(variable) %>%
+  mutate(ktq = paste0(country, year, variable_cp)) %>%
+  group_by(variable_cp) %>%
   summarize(kt = n_distinct(ktq)) %>%
   arrange(kt) %>%
-  mutate(var = factor(variable, levels = variable[order(kt, decreasing = TRUE)])) %>%
+  mutate(var = factor(variable_cp, levels = variable_cp[order(kt, decreasing = TRUE)])) %>%
   ungroup()
 
-ggplot(ktq %>% filter(kt>30), aes(x = var, y = kt)) +
+ggplot(ktq, aes(x = var, y = kt)) +
     geom_bar(fill = "#011993", stat = "identity") +
-    labs(x = NULL, y=NULL) +
+    labs(x = NULL, y = NULL) +
     theme_bw() +
     ggtitle("Count of Country-Years by Item") +
     theme(axis.text.x  = element_text(size=8))
