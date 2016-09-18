@@ -27,13 +27,10 @@ library(rstan)
 ### Delete these when turning into a function
 seed <- 324
 iter <- 200
-chains <- 4
+chains <- 3
 cores <- chains
 x <- prot
 ###
-
-qr <- x %>% group_by(rcode) %>% summarize(qr = first(qcode),
-                                          mcp = max(cutpoint))
 
 prot_data <- list(  K=max(x$ccode),
                     T=max(x$tcode),
