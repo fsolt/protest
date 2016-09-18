@@ -13,20 +13,22 @@ View(x1_sum)
 View(x1_sum[x1_sum$Rhat>1.1,])
 View(x1_sum[x1_sum$Rhat>1.2,])
 
-qcodes <- prot %>% group_by(variable) %>%
-  summarize(qcode = first(qcode),
-            r_n = n()) %>%
-  arrange(qcode)
+qcodes <- prot %>% 
+    group_by(variable_cp) %>%
+    summarize(qcode = first(qcode),
+              r_n = n()) %>%
+    arrange(qcode)
 
-rcodes <- prot %>% group_by(variable_cp) %>%
-  summarize(rcode = first(rcode),
-            r_n = n()) %>%
-  arrange(rcode)
-
-
-
-b_res <- x1_sum %>% filter(parameter_type=="beta") %>% select(parameter, mean, `2.5%`, `97.5%`)  %>% mutate(rcode = as.numeric(str_extract(parameter, "\\d+"))) %>% left_join(rcodes, by="rcode")
-g_res <- x1_sum %>% filter(parameter_type=="gamma") %>% select(parameter, mean, `2.5%`, `97.5%`)  %>% mutate(rcode = as.numeric(str_extract(parameter, "\\d+"))) %>% left_join(rcodes, by="rcode")
+b_res <- x1_sum %>% 
+    filter(parameter_type=="beta") %>% 
+    select(parameter, mean, `2.5%`, `97.5%`) %>%
+    mutate(qcode = as.numeric(str_extract(parameter, "\\d+"))) %>%
+    left_join(qcodes, by="qcode")
+g_res <- x1_sum %>%
+    filter(parameter_type=="gamma") %>%
+    select(parameter, mean, `2.5%`, `97.5%`) %>%
+    mutate(qcode = as.numeric(str_extract(parameter, "\\d+"))) %>%
+    left_join(qcodes, by="qcode")
 # s_dk_res <- x1_sum %>% filter(parameter_type=="sd_k") %>% select(parameter, mean, `2.5%`, `97.5%`)  %>% mutate(rcode = as.numeric(str_extract(parameter, "\\d+"))) %>% left_join(rcodes)
 
 beep()
@@ -38,10 +40,10 @@ a_res$ccode <- as.numeric(gsub("alpha\\[([0-9]*),[0-9]*\\]", "\\1", row.names(a_
 a_res$tcode <- as.numeric(gsub("alpha\\[[0-9]*,([0-9]*)\\]", "\\1", row.names(a_res)))
 
 k <- prot %>% group_by(country) %>% summarize(
-  ccode = first(ccode),
-  firstyr = first(firstyr),
-  lastyr = first(lastyr)) %>%
-  ungroup()
+    ccode = first(ccode),
+    firstyr = first(firstyr),
+    lastyr = first(lastyr)) %>%
+    ungroup()
 
 a_res <- merge(a_res, k, all=T)
 a_res$year <- min(a_res$firstyr) + a_res$tcode - 1
